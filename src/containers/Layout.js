@@ -1,13 +1,31 @@
 import React from 'react'
-// import styled from 'styled-components';
+
+import styled from 'styled-components'
+import { createGlobalStyle } from "styled-components"
+// import "@fontsource/roboto" 
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`
+
+const Container = styled.div`
+  max-width: 1680px;
+  margin: 0 auto;
+  display: grid;
+  grid-column-gap: 16px;
+`
 
 
 const Layout = ({children}) => {
     return(
         <>
-            <div>
+            <GlobalStyle theme="sizing" />
+            <Container>
                 {children}
-            </div>
+            </Container>
         </>
     )
 
