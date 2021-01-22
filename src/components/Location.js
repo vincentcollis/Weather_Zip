@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 
 
+// styling
+const Form = styled.form`
+    grid-column: 2/2 ;
+    grid-row : 2/3;
+`
+
+
 export default function Location (props){
-    // styling
-    const StyledForm = styled.form`
-        grid-column: 4/8 ;
-        grid-row : 3/6;
-    `
+    
 
     // saving props to constant
     const fetchData = props.fetchData
@@ -45,8 +48,8 @@ export default function Location (props){
 
     
     return(
-        <StyledForm onSubmit={submitHandler}>
+        <Form onSubmit={submitHandler}>
             <input name = 'zipcode' type='text' onChange = {changeHandler} value ={input} />
-        </StyledForm>
+        </Form>
     )
 }

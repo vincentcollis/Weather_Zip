@@ -15,12 +15,12 @@ const Container = styled.div`
   /* max-width: 1680px; */
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 150px auto auto auto auto auto;
+  grid-template-rows: auto auto auto;
   /* grid-column-gap: 16px; */
 `
 
 
-const Layout = ({children}) => {
+function Layout({children}){
     return(
         <>
             <GlobalStyle theme="sizing" />
