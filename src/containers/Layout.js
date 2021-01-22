@@ -12,10 +12,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Container = styled.div`
-  max-width: 1680px;
+  /* max-width: 1680px; */
   margin: 0 auto;
   display: grid;
-  grid-column-gap: 16px;
+  grid-template-rows: 150px auto auto auto auto auto;
+  /* grid-column-gap: 16px; */
 `
 
 
