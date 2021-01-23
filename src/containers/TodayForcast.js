@@ -3,8 +3,10 @@ import styled from 'styled-components'
 
 // styling
 const StyledDiv = styled.div`
-    grid-column: 2/2 ;
-    grid-row : 4/5;
+    /* grid-column: 2/2 ;
+    grid-row : 3/3; */
+    /* justify-self: center;
+    align-self: center; */
 `
 
 export default function TodayForcast(props) {

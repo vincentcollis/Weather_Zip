@@ -8,15 +8,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    font-size: 3em;
+    text-transform: uppercase;
   }
 `
 
 const Container = styled.div`
-  /* max-width: 1680px; */
-  margin: 0 auto;
   display: grid;
-  grid-template-rows: auto auto auto;
-  /* grid-column-gap: 16px; */
+  grid-template-rows: 100vh;
+  grid-template-columns: 100vw;
 `
 
 

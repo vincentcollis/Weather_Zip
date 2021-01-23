@@ -4,8 +4,10 @@ import styled from 'styled-components'
 
 // styling
 const Form = styled.form`
-    grid-column: 2/2 ;
-    grid-row : 2/3;
+    /* grid-column: 2/2 ;
+    grid-row : 2/2; */
+    /* justify-self: center;
+    align-self: center; */
 `
 
 

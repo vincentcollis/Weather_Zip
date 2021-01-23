@@ -1,13 +1,19 @@
 import React, {useState} from 'react'
+import styled from 'styled-components'
 
-// import GlobalStyle from './GlobalStyles'
+// API
+import getWeatherData from './api/index'
+
 import Layout from './containers/Layout'
-
 import Location from './components/Location'
 import TodayForcast from './containers/TodayForcast'
-// import WeekForcast from './containers/WeekForcast'
 
-import getWeatherData from './api/index'
+const Div = styled.div`
+  justify-self: center;
+  align-self: center;
+`
+
+
 
 
 function App() {
@@ -36,12 +42,14 @@ function App() {
     <>
       {/* <GlobalStyle/> */}
       <Layout>
-        <Location fetchData = {fetchData} zip = {zip} setZip = {setZip}/>
-        <TodayForcast 
-          description = {description}
-          temp = {temp}
-          feelsLike = {feelsLike}
-        />
+        <Div>
+          <TodayForcast 
+            description = {description}
+            temp = {temp}
+            feelsLike = {feelsLike}
+          />
+          <Location fetchData = {fetchData} zip = {zip} setZip = {setZip}/>
+        </Div>
         {/* <WeekForcast/> */}
       </Layout>
     </>
