@@ -11,12 +11,13 @@ const StyledDiv = styled.div`
 
 export default function TodayForcast(props) {
     // destruct props
-    let {feelsLike, temp, description} = props
+    let {feelsLike, temp, description, name} = props
 
-    console.log(temp)
+    // console.log(temp)
     return (
         <StyledDiv>
-            {description}<br/>
+            Area: {name}<br/>
+            Conditions: {description}<br/>
             Current Temperture: {temp}<br/>
             Feels Like: {feelsLike}<br/>
         </StyledDiv>

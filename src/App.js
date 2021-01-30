@@ -33,7 +33,7 @@ function App() {
     setFeelsLike(payload.main.feels_like)
     
   }
-  // console.log(`${zip} ${name} ${description} ${temp} ${feelsLike}`)
+  console.log(`${zip} ${name} ${description} ${temp} ${feelsLike}`)
   
   return (
     <>
@@ -44,6 +44,7 @@ function App() {
             description = {description}
             temp = {temp}
             feelsLike = {feelsLike}
+            name = {name}
           />
           <Location fetchData = {fetchData} zip = {zip} setZip = {setZip}/>
         </Div>
