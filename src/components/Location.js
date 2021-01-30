@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import styled, {keyframes, ThemeProvider} from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 
 // styling
@@ -9,13 +9,6 @@ const Form = styled.form`
     /* justify-self: center;
     align-self: center; */
 `
-
-const theme = {
-    shadow1: "5px 5px 5px .5px #D3D3D3",
-    shadow2: "-5px -5px 5px .5px #D3D3D3",
-    shadow3: "5px -5px 5px .5px #D3D3D3",
-    shadow4: "-5px 5px 5px .5px #D3D3D3"
-}
 
 const breatheAnimation = keyframes`
     0% { box-shadow: 
@@ -119,7 +112,6 @@ export default function Location (props){
 
     
     return(
-        <ThemeProvider theme={theme}>
             <Form onSubmit={submitHandler}>
                 <Input 
                     name = 'zipcode' 
@@ -130,6 +122,5 @@ export default function Location (props){
                     maxLength = '5' 
                 />
             </Form>
-        </ThemeProvider>
     )
 }
