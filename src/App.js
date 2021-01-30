@@ -13,9 +13,6 @@ const Div = styled.div`
   align-self: center;
 `
 
-
-
-
 function App() {
 
   // set state
