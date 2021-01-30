@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import styled from 'styled-components'
+import styled, {keyframes, ThemeProvider} from 'styled-components'
 
 
 // styling
@@ -8,6 +8,75 @@ const Form = styled.form`
     grid-row : 2/2; */
     /* justify-self: center;
     align-self: center; */
+`
+
+const theme = {
+    shadow1: "5px 5px 5px .5px #D3D3D3",
+    shadow2: "-5px -5px 5px .5px #D3D3D3",
+    shadow3: "5px -5px 5px .5px #D3D3D3",
+    shadow4: "-5px 5px 5px .5px #D3D3D3"
+}
+
+const breatheAnimation = keyframes`
+    0% { box-shadow: 
+            5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 0.3;
+    }
+    20% { box-shadow: 
+            5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 0.5;
+    }
+    40% { box-shadow: 
+            5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 0.7;
+    }
+    50% { box-shadow: 
+            5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 1;
+    }
+    60% { box-shadow: 
+            5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 0.7;
+    }
+    80% { box-shadow: 
+            5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 0.5;
+    }
+    100% { box-shadow: 
+        5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 0.3;
+    }
+ `
+
+const Input  = styled.input`
+    width: 3em;
+    font-size: 3rem;
+    padding:1rem;
+    border: solid black;
+    box-shadow: 
+            5px 5px 5px .5px #D3D3D3, 
+            -5px -5px 5px .5px #D3D3D3, 
+            5px -5px 5px .5px #D3D3D3,
+            -5px 5px 5px .5px #D3D3D3; opacity: 1;
+    &:focus {
+            animation-name: ${breatheAnimation};
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+    }
 `
 
 
@@ -50,8 +119,17 @@ export default function Location (props){
 
     
     return(
-        <Form onSubmit={submitHandler}>
-            <input name = 'zipcode' type='text' onChange = {changeHandler} value ={input} />
-        </Form>
+        <ThemeProvider theme={theme}>
+            <Form onSubmit={submitHandler}>
+                <Input 
+                    name = 'zipcode' 
+                    type = 'text' 
+                    onChange = {changeHandler} 
+                    value = {input} 
+                    placeholder="#####"
+                    maxLength = '5' 
+                />
+            </Form>
+        </ThemeProvider>
     )
 }
