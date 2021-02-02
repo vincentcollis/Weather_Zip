@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled, {keyframes} from 'styled-components'
 
+import {connect} from 'react-redux'
 
 // styling
 const Form = styled.form`
@@ -73,9 +74,8 @@ const Input  = styled.input`
 `
 
 
-export default function Location (props){
+function Location (props){
     
-
     // saving props to constant
     const fetchData = props.fetchData
 
@@ -102,12 +102,10 @@ export default function Location (props){
         event.preventDefault()
         const input = event.target[0].value
         
-        // const errors = []
-        // console.log(event.target[0].value.length)
-        if( input.length === 5) return fetchData(input)
-        
-        // errors.push("Zip code must be 5 charecters long")
-        // return errors
+        // if( input.length === 5) return fetchData(input)
+
+        // console.log(input)
+        console.log(props)
     }
 
     
@@ -124,3 +122,11 @@ export default function Location (props){
             </Form>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        weatherData: state.weatherData
+    }
+}
+
+export default  connect(mapStateToProps)(Location)

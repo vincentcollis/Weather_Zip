@@ -46,7 +46,9 @@ function App() {
             feelsLike = {feelsLike}
             name = {name}
           />
-          <Location fetchData = {fetchData} zip = {zip} setZip = {setZip}/>
+          <Location 
+          // fetchData = {fetchData} zip = {zip} setZip = {setZip}
+          />
         </Div>
         {/* <WeekForcast/> */}
       </Layout>
