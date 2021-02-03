@@ -102,10 +102,7 @@ function Location (props){
         event.preventDefault()
         const input = event.target[0].value
         
-        // if( input.length === 5) return fetchData(input)
-
-        // console.log(input)
-        console.log(props)
+        props.fetchWeather(input)
     }
 
     
@@ -129,4 +126,14 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default  connect(mapStateToProps)(Location)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchWeather: (zip) => { 
+            dispatch({
+                type: 'FETCH_WEATHER', 
+                zip: zip})
+        }
+    }
+}
+
+export default  connect(mapStateToProps, mapDispatchToProps)(Location)
