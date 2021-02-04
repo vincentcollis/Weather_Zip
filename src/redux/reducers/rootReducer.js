@@ -13,9 +13,9 @@ const rootReducer = ( state = initState, action) =>{
     
     if(action.type === "FETCH_WEATHER"){
 
-        let data = fetchWeatherData(action.zip)
-        
-        console.log(data)
+        let payload = fetchWeatherData(action.zip)
+        console.log(payload)
+        // console.log(data)
         // state.weatherData.push({
         //     id: state.weatherData.length + 1 ,
         //     zip: action.zip,
@@ -28,6 +28,12 @@ const rootReducer = ( state = initState, action) =>{
 
     }
     // console.log(action)
+
+    if(action.type === "ADD_WEATHER_DATA"){
+        console.log(action.payload)
+    }
+
+
     return state;
 }
 
