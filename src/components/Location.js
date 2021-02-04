@@ -75,9 +75,6 @@ const Input  = styled.input`
 
 
 function Location (props){
-    
-    // saving props to constant
-    const fetchData = props.fetchData
 
     // set state
     const [input, setInput] = useState('')
@@ -100,11 +97,10 @@ function Location (props){
     // fetch data and set state in App.js
     function submitHandler(event){
         event.preventDefault()
-        const input = event.target[0].value
         
         props.fetchWeather(input)
     }
-
+    console.log(props)
     
     return(
             <Form onSubmit={submitHandler}>
