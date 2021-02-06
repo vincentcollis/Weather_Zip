@@ -19,24 +19,23 @@ const Temp = styled.span`
 `
 
 export default function TodayForcast(props) {
-    // destruct props
+
     let {feelsLike, temp, description, name} = props
 
-    // console.log(temp)
     return (
-        <StyledDiv>
-            <Area>
+        <div>
+            <span>
                 Area: {name}
-            </Area><br/>
-            <Conditions>
+            </span><br/>
+            <span>
                 Conditions: {description}
-            </Conditions><br/>
-            <CurrentTemp>
+            </span><br/>
+            <span>
                 Current Temperture: {temp}
-            </CurrentTemp><br/>
-            <FeelsLike>
+            </span><br/>
+            <span>
                 Feels Like: <Temp temp = {feelsLike} >{feelsLike}</Temp>
-            </FeelsLike><br/>
-        </StyledDiv>
+            </span><br/>
+        </div>
     )
 }
