@@ -100,7 +100,7 @@ function Location (props){
         
         props.fetchWeather(input)
     }
-    console.log(props)
+    
     
     return(
             <Form onSubmit={submitHandler}>
@@ -117,12 +117,14 @@ function Location (props){
 }
 
 const mapStateToProps = (state) => {
+    
     return {
         weatherData: state.weatherData
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
+    
     return {
         fetchWeather: (zip) => { 
             dispatch({

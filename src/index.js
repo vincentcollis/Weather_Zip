@@ -9,8 +9,13 @@ import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import rootReducer from './redux/reducers/rootReducer'
 
+import initialState from './initialState';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+
+const middlewares = [thunk]
+
+
+const store = createStore(rootReducer, initialState, applyMiddleware(...middlewares));
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
