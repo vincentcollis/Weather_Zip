@@ -1,12 +1,29 @@
-const axios = require('axios');
+import {fetchWeatherDataPending, fetchWeatherDataSuccess, fetchWeatherDataError} from '../redux/Actions';
 
-const fetchWeatherData = async (arg) => {
+// const axios = require('axios');
+
+function fetchWeatherData(arg){
 
     // retrieve data
-    const payload = await axios.get('http://api.openweathermap.org/data/2.5/weather?zip=' + arg +'&units=imperial&appid=' + process.env.REACT_APP_WEATHER_API_KEY)
+    // const payload = await axios.get('http://api.openweathermap.org/data/2.5/weather?zip=' + arg +'&units=imperial&appid=' + process.env.REACT_APP_WEATHER_API_KEY)
     
-    
-    return payload.data
+    // retrieve data
+    return dispatch => {
+        dispatch(fetchWeatherDataPending())
+
+        fetch('http://api.openweathermap.org/data/2.5/weather?zip=' + arg +'&units=imperial&appid=' + process.env.REACT_APP_WEATHER_API_KEY)
+        .then(response => response.json())
+        .then(response => {
+            if(response.error){
+                throw(response.error)
+            }
+            dispatch(fetchWeatherDataSuccess(response.weatherData))
+            return response.weatherData
+        })
+        .catch(error => {
+            dispatch(fetchWeatherDataError(error))
+        })
+    }
 }
   
 export default fetchWeatherData
