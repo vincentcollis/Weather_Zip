@@ -16,24 +16,24 @@ const Div = styled.div`
 function App() {
 
   // set state
-  const [zip, setZip] = useState('')
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [temp, setTemp] = useState('')
-  const [feelsLike, setFeelsLike] = useState('')
+  // const [zip, setZip] = useState('')
+  // const [name, setName] = useState('')
+  // const [description, setDescription] = useState('')
+  // const [temp, setTemp] = useState('')
+  // const [feelsLike, setFeelsLike] = useState('')
 
   // const [state, setstate] = useState(initialState)
 
- async function fetchData(zip){
-    let payload = await getWeatherData(zip)
+//  async function fetchData(zip){
+//     let payload = await getWeatherData(zip)
     
-    setName(payload.name)
-    setDescription(payload.weather[0].description)
-    setTemp(payload.main.temp)
-    setFeelsLike(payload.main.feels_like)
+//     setName(payload.name)
+//     setDescription(payload.weather[0].description)
+//     setTemp(payload.main.temp)
+//     setFeelsLike(payload.main.feels_like)
     
-  }
-  console.log(`${zip} ${name} ${description} ${temp} ${feelsLike}`)
+//   }
+  // console.log(`${zip} ${name} ${description} ${temp} ${feelsLike}`)
   
   return (
     <>
@@ -41,10 +41,10 @@ function App() {
       <Layout>
         <Div>
           <TodayForcast 
-            description = {description}
-            temp = {temp}
-            feelsLike = {feelsLike}
-            name = {name}
+            // description = {description}
+            // temp = {temp}
+            // feelsLike = {feelsLike}
+            // name = {name}
           />
           <Location 
           // fetchData = {fetchData} zip = {zip} setZip = {setZip}

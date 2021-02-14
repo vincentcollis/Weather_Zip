@@ -1,12 +1,9 @@
 import { FETCH_WEATHER_DATA_PENDING, FETCH_WEATHER_DATA_SUCCESS, FETCH_WEATHER_DATA_ERROR } from '../Actions'
 
-const initialState = {
-    pending: false,
-    weatherData: [],
-    error: null
-}
+import initialState from '../initialState'
 
-export function weatherReducer(state=initialState, action){
+export default function weatherReducer(state=initialState, action){
+    console.log("reducer working")
     switch (action.type) {
         case FETCH_WEATHER_DATA_PENDING:
             return{
@@ -30,6 +27,10 @@ export function weatherReducer(state=initialState, action){
     }
 }
 
-export const getWeatherData = state => state.weatherData
+
+export const getWeatherData = state =>{ 
+    console.log(`weather reducer: ${state.weatherData}`)
+    return state.weatherData 
+}
 export const getWeatherDataPending = state => state.pending
 export const getWeatherDataError = state => state.error

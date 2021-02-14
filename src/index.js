@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import initialState from './redux/initialState';
+
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import rootReducer from './redux/reducers/rootReducer'
 
-import initialState from './initialState';
 
 
 const middlewares = [thunk]

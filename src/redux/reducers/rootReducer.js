@@ -1,48 +1,45 @@
-import fetchWeatherData from '../../api/index'
+// import fetchWeatherData from '../../api/index'
 
-const initState = {
-    weatherData: [
-        //Dummy data
-        {id:1, zip:'07666', description:'clear skys', temp: '28', feelsLikeid:'15'},
-        {id:2,zip:'10034', description: 'Snowing', temp: '25', feelsLikeid:'14'},
-        {id:3,zip:'90210', description: 'sunny', temp: '70', feelsLikeid:'Cambridge'},
-    ],
-}
+import { combineReducers } from 'redux'
+import weatherReducer from './weatherReducer'
 
 
-const rootReducer = ( state = initState, action) =>{
+export default combineReducers({
+    weatherReducer
+})
+
+// const rootReducer = ( state = initState, action) =>{
     
-    if(action.type === "FETCH_WEATHER"){
+//     if(action.type === "FETCH_WEATHER"){
 
-        let payload = fetchWeatherData(action.zip)
+//         let payload = fetchWeatherData(action.zip)
         
-        return {
-            ...state,
-            data: action.payload
-        }
+//         return {
+//             ...state,
+//             data: action.payload
+//         }
 
         
-        // console.log(payload)
-        // return payload
-        // console.log(data)
-        // state.weatherData.push({
-        //     id: state.weatherData.length + 1 ,
-        //     zip: action.zip,
-        //     description: payload.weather , 
-        //     // temp:payload.main.temp,
-        //     // feelsLikeid: payload.main.feels_like,
-        //     name: payload.name
-        // })
-        // console.log(state.weatherData)
-    }
-    console.log(payload)
+//         // console.log(payload)
+//         // return payload
+//         // console.log(data)
+//         // state.weatherData.push({
+//         //     id: state.weatherData.length + 1 ,
+//         //     zip: action.zip,
+//         //     description: payload.weather , 
+//         //     // temp:payload.main.temp,
+//         //     // feelsLikeid: payload.main.feels_like,
+//         //     name: payload.name
+//         // })
+//         // console.log(state.weatherData)
+//     }
+//     console.log(payload)
 
-    if(action.type === "ADD_WEATHER_DATA"){
-        console.log(action.payload)
-    }
+//     if(action.type === "ADD_WEATHER_DATA"){
+//         console.log(action.payload)
+//     }
 
 
-    return state;
-}
+//     return state;
+// }
 
-export default rootReducer;
