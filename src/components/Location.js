@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import styled, {keyframes} from 'styled-components'
-
 import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux';
+
+import fetchWeatherDataAction from '../api/index';
+import { getWeatherData, getWeatherDataPending, getWeatherDataError } from '../redux/reducers/weatherReducer'
 
 // styling
 const Form = styled.form`
@@ -98,9 +101,9 @@ function Location (props){
     function submitHandler(event){
         event.preventDefault()
         
-        props.fetchWeather(input)
+        props.fetchWeatherData(input)
     }
-    console.log(props)
+    
     
     return(
             <Form onSubmit={submitHandler}>
@@ -116,20 +119,24 @@ function Location (props){
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        weatherData: state.weatherData
-    }
-}
+const mapStateToProps = (state) => ({
+    error: getWeatherDataError(state),
+    weatherData: getWeatherData(state),
+    pending: getWeatherDataPending(state)
+})
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchWeather: (zip) => { 
-            dispatch({
-                type: 'FETCH_WEATHER', 
-                zip: zip})
-        }
-    }
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    fetchWeatherData: fetchWeatherDataAction
+}, dispatch)
+// {
+    
+//     return {
+//         fetchWeather: (zip) => { 
+//             dispatch({
+//                 type: 'FETCH_WEATHER', 
+//                 zip: zip})
+//         }
+//     }
+// }
 
 export default  connect(mapStateToProps, mapDispatchToProps)(Location)

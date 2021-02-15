@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+
 const Layout = styled.div`
     margin: ${props => props.last ? "0":"0 0 2em 0" };
 `
 
 function Day(props){
+    console.log(props)
     if (props.position === 6){
         return(
             <Layout last>
@@ -25,4 +28,7 @@ function Day(props){
     )
 }
 
-export default Day;
+
+
+
+export default Day
